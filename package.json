@@ -1,0 +1,25 @@
+{
+  "name": "react-fetcher",
+  "version": "0.1.0",
+  "description": "Simple data fetching for React.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruanmer/react-fetcher.git"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "fetch",
+    "fetcher"
+  ],
+  "author": "Ruan Mer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ruanmer/react-fetcher/issues"
+  },
+  "homepage": "https://github.com/ruanmer/react-fetcher#readme"
+}
