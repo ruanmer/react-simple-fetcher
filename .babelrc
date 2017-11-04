@@ -1,0 +1,19 @@
+{
+  "presets": [
+    "react"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
