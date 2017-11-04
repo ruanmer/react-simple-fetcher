@@ -7,19 +7,25 @@ exports[`should render children 1`] = `
 `;
 
 exports[`should render children when is function 1`] = `
-<div>
+<div
+  fetching={true}
+>
   Children Function
 </div>
 `;
 
 exports[`should render component prop 1`] = `
-<div>
+<div
+  fetching={true}
+>
   Component
 </div>
 `;
 
 exports[`should render prop 1`] = `
-<div>
+<div
+  fetching={true}
+>
   Render
 </div>
 `;
