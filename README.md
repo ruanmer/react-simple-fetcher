@@ -63,3 +63,7 @@ const handleFetch = () => {
 
 export default connectFetcher(handleFetch)(MyComponent);
 ```
+
+## License
+
+MIT
