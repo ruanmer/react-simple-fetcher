@@ -23,3 +23,5 @@ exports[`<Fetcher render> should render 1`] = `
   Render
 </div>
 `;
+
+exports[`<Fetcher> should render 1`] = `null`;

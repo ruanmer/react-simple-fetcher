@@ -2,6 +2,16 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Fetcher from '../src';
 
+describe('<Fetcher>', () => {
+  it('should render', () => {
+    const tree = renderer.create(
+      <Fetcher />
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+});
+
 describe('<Fetcher render>', () => {
   it('should render', () => {
     const tree = renderer.create(
