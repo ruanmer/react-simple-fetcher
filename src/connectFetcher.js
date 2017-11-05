@@ -1,10 +1,10 @@
 import React from 'react';
 import Fetcher from './Fetcher';
 
-const connectFetcher = fetch => Component => {
+const connectFetcher = handler => Component => {
   const C = props => {
     return (
-      <Fetcher fetch={fetch} render={fetcherProps => (
+      <Fetcher handler={handler} render={fetcherProps => (
         <Component {...props} {...fetcherProps} />
       )} />
     );

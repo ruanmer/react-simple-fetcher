@@ -30,7 +30,7 @@ describe('connectFetcher()(Component)', () => {
   });
 });
 
-describe('connectFetcher(fetch)(MockedComponent)', () => {
+describe('connectFetcher(fetch)(Component)', () => {
   const mockFetch = () => new Promise((resolve) => {
     setTimeout(() => {
       const data = {

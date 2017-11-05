@@ -11,10 +11,10 @@ export default class Fetcher extends PureComponent {
   }
 
   async componentDidMount () {
-    const { fetch } = this.props;
+    const { handler } = this.props;
 
-    if (typeof fetch === 'function') {
-      const data = await fetch(this.props);
+    if (typeof handler === 'function') {
+      const data = await handler();
 
       this.setState({
         fetching: false,

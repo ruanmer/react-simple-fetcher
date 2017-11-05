@@ -109,7 +109,7 @@ describe('<Fetcher fetch>', () => {
     let actual = null;
 
     renderer.create(
-      <Fetcher fetch={mockFetch} render={props => (actual = props) && null} />
+      <Fetcher handler={mockFetch} render={props => (actual = props) && null} />
     );
 
     await mockFetch();
