@@ -2,44 +2,81 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Fetcher from '../src';
 
-test('should render component prop', () => {
-  const Component = props => <div {...props}>Component</div>;
+describe('<Fetcher render>', () => {
+  it('should render', () => {
+    const tree = renderer.create(
+      <Fetcher render={() => (
+        <div>Render</div>
+      )} />
+    ).toJSON();
 
-  const tree = renderer.create(
-    <Fetcher component={Component} />
-  ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-  expect(tree).toMatchSnapshot();
+  it('should receive { fetching }  props', () => {
+    let actual = null;
+
+    renderer.create(
+      <Fetcher render={props => (actual = props) && null} />
+    );
+
+    expect(actual.fetching).toBe(true);
+  });
 });
 
-test('should render prop', () => {
-  const tree = renderer.create(
-    <Fetcher render={props => (
-      <div {...props}>Render</div>
-    )} />
-  ).toJSON();
+describe('<Fetcher component>', () => {
+  it('should render', () => {
+    const Component = props => <div>Component</div>;
 
-  expect(tree).toMatchSnapshot();
+    const tree = renderer.create(
+      <Fetcher component={Component} />
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should receive { fetching }  props', () => {
+    let actual = null;
+    const Component = props => (actual = props) && null;
+
+    renderer.create(
+      <Fetcher component={Component} />
+    );
+
+    expect(actual.fetching).toBe(true);
+  });
 });
 
-test('should render children when is function', () => {
-  const tree = renderer.create(
-    <Fetcher>
-      {props => (
-        <div {...props}>Children Function</div>
-      )}
-    </Fetcher>
-  ).toJSON();
+describe('<Fetcher children>', () => {
+  it('should render a function', () => {
+    const tree = renderer.create(
+      <Fetcher>
+        {props => <div>Children Function</div>}
+      </Fetcher>
+    ).toJSON();
 
-  expect(tree).toMatchSnapshot();
-});
+    expect(tree).toMatchSnapshot();
+  });
 
-test('should render children', () => {
-  const tree = renderer.create(
-    <Fetcher>
-      <div>Children</div>
-    </Fetcher>
-  ).toJSON();
+  it('should render a child', () => {
+    const tree = renderer.create(
+      <Fetcher>
+        <div>Children</div>
+      </Fetcher>
+    ).toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should receive { fetching }  props', () => {
+    let actual = null;
+
+    renderer.create(
+      <Fetcher>
+        {props => (actual = props) && null}
+      </Fetcher>
+    );
+
+    expect(actual.fetching).toBe(true);
+  });
 });

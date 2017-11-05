@@ -1,31 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render children 1`] = `
+exports[`<Fetcher children> should render a child 1`] = `
 <div>
   Children
 </div>
 `;
 
-exports[`should render children when is function 1`] = `
-<div
-  fetching={true}
->
+exports[`<Fetcher children> should render a function 1`] = `
+<div>
   Children Function
 </div>
 `;
 
-exports[`should render component prop 1`] = `
-<div
-  fetching={true}
->
+exports[`<Fetcher component> should render 1`] = `
+<div>
   Component
 </div>
 `;
 
-exports[`should render prop 1`] = `
-<div
-  fetching={true}
->
+exports[`<Fetcher render> should render 1`] = `
+<div>
   Render
 </div>
 `;
