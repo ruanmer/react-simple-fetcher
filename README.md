@@ -1,1 +1,1 @@
-# react-fetcher
+# react-simple-fetcher
