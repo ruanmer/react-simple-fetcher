@@ -11,7 +11,7 @@ npm install react-simple-fetcher --save
 ## Usage
 You can use as a Component or a Higher-Order Component.
 
-### Component
+#### Component
 ```js
 import React from 'react';
 import Fetcher from 'react-simple-fetcher';
@@ -23,14 +23,14 @@ class MyComponent extends React.PureComponent {
 
   render () {
     return (
-      <Fetcher handler={this.handleFetch} render={({ fetching, data }) => (
+      <Fetcher handler={this.handleFetch} render={({ fetching, title, body }) => (
         <div>
           {fetching ? (
             'Loading...'
           ) : (
             <div>
-              <h3>{data.title}</h3>
-              <p>{data.body}</h3>
+              <h3>{title}</h3>
+              <p>{body}</h3>
             </div>
           )}
         </div>
@@ -42,19 +42,19 @@ class MyComponent extends React.PureComponent {
 export default MyComponent;
 ```
 
-### Higher-Order Component
+#### Higher-Order Component
 ```js
 import React from 'react';
 import { connectFetcher } from 'react-simple-fetcher';
 
-const MyComponent = ({ fetching, data }) => (
+const MyComponent = ({ fetching, title, body }) => (
   <div>
     {fetching ? (
       'Loading...'
     ) : (
       <div>
-        <h3>{data.title}</h3>
-        <p>{data.body}</h3>
+        <h3>{title}</h3>
+        <p>{body}</h3>
       </div>
     )}
   </div>

@@ -23,7 +23,7 @@ describe('<Fetcher render>', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should receive { fetching, data } props', () => {
+  it('should receive { fetching } props', () => {
     let actual = null;
 
     renderer.create(
@@ -31,7 +31,6 @@ describe('<Fetcher render>', () => {
     );
 
     expect(actual.fetching).toBe(true);
-    expect(actual.data).toBe(null);
   });
 });
 
@@ -46,7 +45,7 @@ describe('<Fetcher component>', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should receive { fetching, data } props', () => {
+  it('should receive { fetching } props', () => {
     let actual = null;
     const Component = props => (actual = props) && null;
 
@@ -55,7 +54,6 @@ describe('<Fetcher component>', () => {
     );
 
     expect(actual.fetching).toBe(true);
-    expect(actual.data).toBe(null);
   });
 });
 
@@ -80,7 +78,7 @@ describe('<Fetcher children>', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should receive { fetching, data } props', () => {
+  it('should receive { fetching } props', () => {
     let actual = null;
 
     renderer.create(
@@ -90,7 +88,6 @@ describe('<Fetcher children>', () => {
     );
 
     expect(actual.fetching).toBe(true);
-    expect(actual.data).toBe(null);
   });
 });
 
@@ -105,7 +102,7 @@ describe('<Fetcher fetch>', () => {
     }, 300);
   });
 
-  it('should receive { fetching, data } after fetch', async () => {
+  it('should receive { fetching, fake } after fetch', async () => {
     let actual = null;
 
     renderer.create(
@@ -115,8 +112,6 @@ describe('<Fetcher fetch>', () => {
     await mockFetch();
 
     expect(actual.fetching).toBe(false);
-    expect(actual.data).toEqual({
-      fake: 'data'
-    });
+    expect(actual.fake).toBe('data');
   });
 });

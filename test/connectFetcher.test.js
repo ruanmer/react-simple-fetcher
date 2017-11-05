@@ -15,7 +15,7 @@ describe('connectFetcher()(Component)', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should receive { fetching, data, fake } props', () => {
+  it('should receive { fetching, fake } props', () => {
     let actual = null;
     const Component = props => (actual = props) && null;
     const ConnectFetcher = connectFetcher(null)(Component);
@@ -25,7 +25,6 @@ describe('connectFetcher()(Component)', () => {
     );
 
     expect(actual.fetching).toBe(true);
-    expect(actual.data).toBe(null);
     expect(actual.fake).toBe('prop');
   });
 });
@@ -41,7 +40,7 @@ describe('connectFetcher(fetch)(Component)', () => {
     }, 300);
   });
 
-  it('should receive { fetching, data } after fetch', async () => {
+  it('should receive { fetching, fake } after fetch', async () => {
     let actual = null;
     const Component = props => (actual = props) && null;
     const ConnectFetcher = connectFetcher(mockFetch)(Component);
@@ -53,8 +52,6 @@ describe('connectFetcher(fetch)(Component)', () => {
     await mockFetch();
 
     expect(actual.fetching).toBe(false);
-    expect(actual.data).toEqual({
-      fake: 'data'
-    });
+    expect(actual.fake).toBe('data');
   });
 });

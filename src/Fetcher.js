@@ -5,8 +5,7 @@ export default class Fetcher extends PureComponent {
     super(props);
 
     this.state = {
-      fetching: true,
-      data: null
+      fetching: true
     }
   }
 
@@ -16,9 +15,12 @@ export default class Fetcher extends PureComponent {
     if (typeof handler === 'function') {
       const data = await handler();
 
+      if (typeof data === 'object') {
+        this.setState(data);
+      }
+
       this.setState({
-        fetching: false,
-        data
+        fetching: false
       });
     }
   }
