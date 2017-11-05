@@ -9,6 +9,18 @@ export default class Fetcher extends PureComponent {
     }
   }
 
+  componentDidMount () {
+    const { fetch } = this.props;
+
+    if (typeof fetch === 'function') {
+      fetch(this.props).then(() => {
+        this.setState({
+          fetching: false
+        });
+      });
+    }
+  }
+
   render () {
     const { component, render, children } = this.props;
     const props = this.state;
