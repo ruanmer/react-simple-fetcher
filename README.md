@@ -1,4 +1,7 @@
 # react-simple-fetcher
+[![Build Status](https://travis-ci.org/ruanmer/react-simple-fetcher.svg?branch=master)](https://travis-ci.org/ruanmer/react-simple-fetcher)
+[![npm version](https://img.shields.io/npm/v/react-simple-fetcher.svg?style=flat-square)](https://www.npmjs.com/package/react-simple-fetcher)
+
 Simple data fetching for React.
 
 ```bash
@@ -15,7 +18,7 @@ import Fetcher from 'react-simple-fetcher';
 
 class MyComponent extends React.PureComponent {
   handleFetch () {
-    return fetch('https://jsonplaceholder.typicode.com');
+    return fetch('https://jsonplaceholder.typicode.com/posts/1');
   }
 
   render () {
@@ -58,7 +61,7 @@ const MyComponent = ({ fetching, data }) => (
 );
 
 const handleFetch = () => {
-  return fetch('https://jsonplaceholder.typicode.com');  
+  return fetch('https://jsonplaceholder.typicode.com/posts/1');  
 };
 
 export default connectFetcher(handleFetch)(MyComponent);
