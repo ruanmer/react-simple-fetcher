@@ -54,4 +54,19 @@ describe('connectFetcher(fetch)(Component)', () => {
     expect(actual.fetching).toBe(false);
     expect(actual.fake).toBe('data');
   });
+
+  it('should pass props to handler', async () => {
+    let actual = null;
+    const Component = () => null;
+    const handleFetch = props => (actual = props) && mockFetch;
+    const ConnectFetcher = connectFetcher(handleFetch)(Component);
+
+    renderer.create(
+      <ConnectFetcher fake="prop" />
+    );
+
+    await mockFetch();
+
+    expect(actual.fake).toBe('prop');
+  });
 });
