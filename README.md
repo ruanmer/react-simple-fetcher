@@ -16,9 +16,9 @@ You can use as a Component or a Higher-Order Component.
 import React from 'react';
 import Fetcher from 'react-simple-fetcher';
 
-class MyComponent extends React.PureComponent {
-  handleFetch () {
-    return fetch('https://jsonplaceholder.typicode.com/posts/1');
+class Post extends React.PureComponent {
+  handleFetch = () => {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`);
   }
 
   render () {
@@ -39,7 +39,7 @@ class MyComponent extends React.PureComponent {
   }
 }
 
-export default MyComponent;
+export default Post;
 ```
 
 #### Higher-Order Component
@@ -47,7 +47,7 @@ export default MyComponent;
 import React from 'react';
 import { connectFetcher } from 'react-simple-fetcher';
 
-const MyComponent = ({ fetching, title, body }) => (
+const Post = ({ fetching, title, body }) => (
   <div>
     {fetching ? (
       'Loading...'
@@ -60,11 +60,11 @@ const MyComponent = ({ fetching, title, body }) => (
   </div>
 );
 
-const handleFetch = () => {
-  return fetch('https://jsonplaceholder.typicode.com/posts/1');  
+const handleFetch = props => {
+  return fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`);  
 };
 
-export default connectFetcher(handleFetch)(MyComponent);
+export default connectFetcher(handleFetch)(Post);
 ```
 
 ## License
