@@ -9,9 +9,9 @@ npm install react-simple-fetcher --save
 ```
 
 ## Usage
-You can use as a Component or a Higher-Order Component.
+You can use it as a [Render Prop Component](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) or a Higher-Order Component.
 
-#### Component
+#### Render Prop Component
 ```js
 import React from 'react';
 import Fetcher from 'react-simple-fetcher';
@@ -61,7 +61,7 @@ const Post = ({ fetching, title, body }) => (
 );
 
 const handleFetch = props => {
-  return fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`);  
+  return fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`);
 };
 
 export default connectFetcher(handleFetch)(Post);
