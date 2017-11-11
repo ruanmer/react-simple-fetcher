@@ -18,7 +18,7 @@ import Fetcher from 'react-simple-fetcher';
 
 class Post extends React.PureComponent {
   handleFetch = () => {
-    return fetch(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`);
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`).then(response => response.json());
   }
 
   render () {
@@ -61,7 +61,7 @@ const Post = ({ fetching, title, body }) => (
 );
 
 const handleFetch = props => {
-  return fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`);
+  return fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`).then(response => response.json());
 };
 
 export default connectFetcher(handleFetch)(Post);
