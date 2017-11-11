@@ -16,12 +16,15 @@ export default class Fetcher extends React.PureComponent {
       const data = await handler();
 
       if (typeof data === 'object') {
-        this.setState(data);
+        this.setState({
+          ...data,
+          fetching: false
+        });
+      } else {
+        this.setState({
+          fetching: false
+        });
       }
-
-      this.setState({
-        fetching: false
-      });
     }
   }
 
