@@ -30,7 +30,7 @@ class Post extends React.PureComponent {
           ) : (
             <div>
               <h3>{title}</h3>
-              <p>{body}</h3>
+              <p>{body}</p>
             </div>
           )}
         </div>
@@ -54,7 +54,7 @@ const Post = ({ fetching, title, body }) => (
     ) : (
       <div>
         <h3>{title}</h3>
-        <p>{body}</h3>
+        <p>{body}</p>
       </div>
     )}
   </div>
