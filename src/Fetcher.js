@@ -9,28 +9,35 @@ export default class Fetcher extends React.PureComponent {
     }
   }
 
-  async componentDidMount () {
+  getProps () {
+    const { handler, component, render, children, ...props } = this.props;
+
+    return props;
+  }
+
+  componentDidMount () {
     const { handler } = this.props;
+    const props = this.getProps();
 
     if (typeof handler === 'function') {
-      const data = await handler();
-
-      if (typeof data === 'object') {
-        this.setState({
-          ...data,
-          fetching: false
-        });
-      } else {
-        this.setState({
-          fetching: false
-        });
-      }
+      handler(props).then(data => {
+        if (typeof data === 'object') {
+          this.setState({
+            ...data,
+            fetching: false
+          });
+        } else {
+          this.setState({
+            fetching: false
+          });
+        }
+      });
     }
   }
 
   render () {
     const { component, render, children } = this.props;
-    const props = this.state;
+    const props = { ...this.state };
 
     if (component) {
       return React.createElement(component, props);

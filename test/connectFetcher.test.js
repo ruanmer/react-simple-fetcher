@@ -58,7 +58,7 @@ describe('connectFetcher(fetch)(Component)', () => {
   it('should pass props to handler', async () => {
     let actual = null;
     const Component = () => null;
-    const handleFetch = props => (actual = props) && mockFetch;
+    const handleFetch = props => (actual = props) && mockFetch();
     const ConnectFetcher = connectFetcher(handleFetch)(Component);
 
     renderer.create(
