@@ -1,6 +1,6 @@
 {
   "name": "react-simple-fetcher",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Simple data fetching for React.",
   "main": "lib/index.js",
   "scripts": {
