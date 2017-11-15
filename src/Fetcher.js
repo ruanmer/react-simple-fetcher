@@ -4,8 +4,14 @@ export default class Fetcher extends React.PureComponent {
   constructor (props) {
     super(props);
 
+    let fetching = true;
+
+    if (typeof props.handler !== 'function') {
+      fetching = false;
+    }
+
     this.state = {
-      fetching: true
+      fetching
     }
   }
 
