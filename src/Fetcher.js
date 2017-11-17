@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Fetcher extends React.PureComponent {
+export default class Fetcher extends React.Component {
   constructor (props) {
     super(props);
 

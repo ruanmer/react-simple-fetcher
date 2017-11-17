@@ -2,7 +2,7 @@ import React from 'react';
 import Fetcher from './Fetcher';
 
 const connectFetcher = handler => Component => {
-  class C extends React.PureComponent {
+  class C extends React.Component {
     constructor (props) {
       super(props);
 
